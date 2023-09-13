@@ -1,5 +1,6 @@
 let server = require('ws').Server
 const { exec } = require('child_process')
+const http = require('http')
 
 /**
  * 該当のOSがTrueになる
@@ -29,6 +30,19 @@ if (os.linux) {
   console.log('You not use Linux. Unknown IP address')
 }
 
+/**
+ * http Server
+ */
+const httpserver = http.createServer((request, response) => {
+  response.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
+  response.end('<a href="https://tasc.enoki.xyz">Tasc is here</a>')
+})
+httpserver.listen(80)
+console.log('http is enbled at port 80')
+
+/**
+ * WS Server
+ */
 s.on('connection', function (ws) {
   ws.on('message', function (message) {
     /**
