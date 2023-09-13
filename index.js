@@ -24,7 +24,9 @@ if (os.linux) {
       return
     }
     console.log('stdout: ' + stdout)
-    console.error('stderr: ' + stderror)
+    if (stderror) {
+      console.error('stderr: ' + stderror)
+    }
   })
 } else {
   console.log('You not use Linux. Unknown IP address')
