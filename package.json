@@ -13,6 +13,7 @@
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
+    "child_process": "^1.0.2",
     "ws": "^8.14.1"
   }
 }
