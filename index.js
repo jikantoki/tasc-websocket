@@ -1,20 +1,30 @@
-console.log('Hello Tasc-websocket')
-var server = require('ws').Server
-var s = new server({ port: 5001 })
+let server = require('ws').Server
+let port = 5001
+let s = new server({ port: port })
+
+console.log('Hello Tasc-websocket. The port number is ' + port)
 
 s.on('connection', function (ws) {
   ws.on('message', function (message) {
+    let messageObject
     try {
-      JSON.parse(message)
+      messageObject = JSON.parse(message)
     } catch (error) {
       console.error('This is not JSON. ' + e)
       return
     }
-    message.date = new Date()
-    console.log('Received: ' + message)
+    if (!messageObject.type) {
+      console.error(
+        'object.type is Undefined! ' + JSON.stringify(messageObject)
+      )
+      return
+    }
+    messageObject.date = new Date()
+    let returns = JSON.stringify(messageObject)
+    console.log('Received: ' + returns)
 
     s.clients.forEach(function (client) {
-      client.send(message)
+      client.send(returns)
     })
   })
 
