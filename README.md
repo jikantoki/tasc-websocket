@@ -11,5 +11,5 @@ This project is https://soc.tasc.enoki.xyz
 ## How to use
 
 ```shell
-npm run run
+npm start
 ```
