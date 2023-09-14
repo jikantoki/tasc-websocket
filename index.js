@@ -14,6 +14,7 @@ const os = {
  * 使いたいポート番号を選択
  */
 let port = 5001
+let httpport = 80
 let s = new server({ port: port })
 
 console.log('Hello Tasc-websocket. The port number is ' + port)
@@ -39,8 +40,8 @@ const httpserver = http.createServer((request, response) => {
   response.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
   response.end('<a href="https://tasc.enoki.xyz">Tasc is here</a>')
 })
-httpserver.listen(80)
-console.log('http is enbled at port 80')
+httpserver.listen(httpport)
+console.log('http is enbled at port ' + httpport)
 
 /**
  * WS Server
