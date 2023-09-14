@@ -14,7 +14,7 @@ const os = {
  * 使いたいポート番号を選択
  */
 let port = 5001
-let httpport = 80
+let httpport = 8080
 let s = new server({ port: port })
 
 console.log('Hello Tasc-websocket. The port number is ' + port)
